@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% load static %}
+    <!-- Link to web manifest -->
+    <link
+      rel="manifest"
+      href="{% static 'img/favicon_io/site.webmanifest' %}"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'img/favicon_io/android-chrome-192x192.png' %}"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <title>Comcato || Login Page</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+        
+          {% if messages %}
+            {% for message in messages %}
+              
+              {% if message.tags == 'error' %}
+                <div class="alert alert-danger" role="alert">
+                  {{ message }}
+                </div>
+              {% elif message.tags == 'success' %}
+                <div class="alert alert-success" role="alert">
+                  {{ message }}
+                </div>
+              {% else %}
+                <div class="alert alert-success" role="alert">
+                  {{ message }}
+                </div>
+              {% endif %}
+              
+            {% endfor %}
+          {% endif %}
+          <form method="post" enctype="multipart/form-data" action="{% url 'Sign In' %}" class="sign-in-form">
+            {% csrf_token %} 
+            <div>
+              <img src={% static "img/logo.png" %} class="logo-image" alt="" />
+            </div>
+            <h2 class="title">Login</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              {{ Login_form.username }}
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              {{ Login_form.password }}
+            </div>
+            <input type="submit" value="Login" class="btn solid" />
+          </form>
+          <form method="post" enctype="multipart/form-data" action="{% url 'Sign Up' %}" class="sign-up-form">
+            {% csrf_token %} 
+            <div
+              style="
+                min-width: 100px !important;
+                max-width: 150px !important;
+                width: 100%;
+              "
+            >
+              <img src={% static "img/logo.png" %} class="logo-image" alt="" />
+            </div>
+            <h2 class="title">Create An Account</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+                {{ Register_form.username }}
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              {{ Register_form.email }}
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              {{ Register_form.password }}
+            </div>
+            
+            <input type="submit" class="btn" value="Create An Account" />
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>One of Our Valued Members</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <button
+              class="btn transparent"
+              id="sign-up-btn"
+              style="width: 175px"
+            >
+              Create An Account
+            </button>
+          </div>
+          <img src={% static 'img/Privacy-policy-rafiki.png' %} class="image"
+          alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>New to our community ?</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">Login</button>
+          </div>
+          <img src={% static "img/Mobile-login.png" %} class="image" alt="" />
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+  </body>
+</html>

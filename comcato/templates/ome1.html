@@ -1,0 +1,870 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comcato || Home Page</title>
+    
+    <link
+      rel="manifest"
+      href="{% static 'img/favicon_io/site.webmanifest' %}"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'img/favicon_io/android-chrome-192x192.png' %}"
+    />
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <!--video-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <!--animation-->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/pricing.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+  <!-- Bootstrap Select CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Select Country CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select-country@4.2.0/dist/css/bootstrap-select-country.min.css"
+  />
+
+    <style>
+      a.free {
+        color: #ffffff !important;
+        font-weight: 700;
+        background: #1bab1bc4 !important;
+    }
+
+      a.Premium {
+        color: #ffffff !important;
+        font-weight: 700;
+        background: #f14242 !important;
+      }
+      .bootstrap-select>.dropdown-toggle.bs-placeholder, 
+      .bootstrap-select>.dropdown-toggle.bs-placeholder:active,
+      .bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
+      .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+        color: #90a2ad;
+        background: white;
+        border-radius: 16px;
+      }
+      .bootstrap-select>.dropdown-toggle{
+        color: #90a2ad;
+        background: white;
+        border-radius: 16px;
+      }
+      .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        width: 200px;
+    }
+
+    .spinner {
+      position: relative;
+      width: 35.2px;
+      height: 35.2px;
+    }
+
+    .spinner::before,
+    .spinner::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      display: block;
+      animation: spinner-b4c8mmhg 0.5s backwards, spinner-49opz7hg 1.25s 0.5s infinite ease;
+      border: 8.8px solid #021f3c;
+      border-radius: 50%;
+      box-shadow: 0 -52.8px 0 -8.8px #021f3c;
+      position: absolute;
+    }
+
+    .spinner::after {
+      animation-delay: 0s, 1.25s;
+    }
+
+    @keyframes spinner-b4c8mmhg {
+      from {
+          box-shadow: 0 0 0 -8.8px #021f3c;
+      }
+    }
+
+    @keyframes spinner-49opz7hg {
+      to {
+          transform: rotate(360deg);
+      }
+    }
+
+    .preload{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .dropdown-menu.show > a:hover {
+      background: #9f9f9f;
+      color: #fff;
+    }
+    .countrypicker > .dropdown-menu.show {
+      max-width: 250px;
+    }
+    .dropdown-toggle::after {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 0.3em;
+      vertical-align: middle;
+      content: "";
+      border-top: 0.3em solid #fff;
+      border-right: 0.3em solid transparent;
+      border-left: 0.3em solid transparent;
+    }
+    .banner-container{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    
+    @media (min-width: 300px) and (max-width: 600px) {
+      .top-header.fl-st-2 {
+        flex-direction: column-reverse;
+        align-items: flex-end !important;
+        gap: 10px !important;
+        margin-right: 40px !important;
+    }
+    .banner-container{
+      height: 80vh;
+      width: 100%;
+    }
+    .banner-img{
+      display:none;
+    }
+    }
+
+    </style>
+  </head>
+
+  <body class="">
+    <!-- Preloader -->
+    <div id="preload" class="preload">
+          <div class="spinner"></div>
+    </div>
+    <div id="wrapper">
+      <div id="page">
+        
+
+        <header id="header">
+          <div id="site-header">
+              <div class="container-fluid">
+                  <div class="site-header-inner fl-st-2">
+                      <div class="logo fl-st-2">
+                        <div style=" min-width: 100px !important; max-width: 150px !important; width: 100%;">
+                          <img src="{% static 'img/logo.png' %}" class="logo-image"
+                          alt="" />
+                        </div>
+                      </div>
+                      <div class="top-header fl-st-2" style="justify-content: flex-end;">
+                          <div class="nav-wrap fl-st-2">
+                              <div class="btn-menu"><span></span></div>
+                              <nav id="mainnav" class="mainnav">
+                                  <ul class="menu">
+                                    <li class="item text-white">
+                                      <a href="{% url 'home' %}" title="">HOME</a>
+                                    </li>
+                                    <li class="item text-white">
+                                        <a href="{% url 'articles' %}" title="">ARTICLE</a>
+                                    </li>
+                                      
+                                      <li class="item text-black" style="display: inline-flex; justify-content: space-between; align-items: center; gap: 50px;">
+                                        <select class="selectpicker countrypicker text-black" data-flag="true"  data-live-search="true" data-default="GB" ></select>
+
+                                        {% if user.is_authenticated %}
+                                        <ul class="navbar-nav">
+                                          <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" width="40" height="40" class="rounded-circle">
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                              <a class="dropdown-item" href="{% url 'profile' %}" style="color: #021f3c;">Profile</a>
+                                              <a class="dropdown-item" href="{% url 'logout' %}"  style="color: #021f3c;">Log Out</a>
+                                            </div>
+                                          </li>   
+                                        </ul>
+
+                                        {% else %}
+                                        <a href="{% url 'login' %}" class="themesflat-button3 bg-white st-2" style="background-color: #021f3c;">
+                                          <span class="icon-btn"
+                                            ><i class="fa-solid fa-arrow-right-to-bracket"></i
+                                          ></span>
+                                          Login
+                                        </a>
+                                        {% endif %}
+
+
+                                      
+                                      </li>
+                                    
+                                  </ul>
+                                  <!-- /.menu -->
+                              </nav>
+                          </div>
+                          {% comment %} <div class="search-header fl-st-2">
+                              <div id="header-search">
+                                  <a href="#" class="search-box header-search-icon white-color">
+                                      <i class="fas fa-search"></i>
+                                  </a>
+                                  <form role="search" method="get" class="header-search-form" action="#">
+                                      <input type="text" value="" name="s" class="header-search-field" placeholder="Search...">
+                                      <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
+                                  </form>
+                              </div>
+                              <div class="list-menu">
+                                  <div class="menu-box theme-color navigation-side-menu">
+                                      <i class="icon-note-note"></i>
+                                  </div>
+                              </div>
+                          </div> {% endcomment %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </header>
+
+        <!-- Main Content -->
+        <div id="main-content" class="site-main clearfix">
+          <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+              <div id="inner-content" class="inner-content-wrap">
+                <div class="page-content">
+                  <section class="page-title bg-st-2">
+                    <div class="container-fluid">
+                      <div class="overlay-header2"></div>
+
+                      <div class="">
+                        <div class="row banner-container">
+                          <div class="col-lg-6 col-sm-12 banner-text">
+                            <div class="carousel-banner m-0 p-0">
+                              <div
+                                class="themesflat-carousel clearfix wow fadeInUp"
+                                data-item="1"
+                              >
+                                <div
+                                  class="owl-carousel owl-theme none dots-none"
+                                >
+                                  <div class="slide-item">
+                                    <h2 class="title white-color fl-serif">
+                                      Main <br />
+                                      Heading
+                                    </h2>
+                                    <p class="sub-title white-color" style="padding-right:0 !important">
+                                      We refuse to continue paying for expensive translators. At solmen
+                                      it will be necessary to make grammar, pronunciation and
+                                      more sleepy words. But when languages coalesce, they
+                                      grammar of the resulting languages is more simple and regular
+                                      quam ti del
+                                    </p>
+                                    <!-- <div class="btn-slide">
+                                      <a
+                                        href="#"
+                                        class="themesflat-button3 bg-white st-2"
+                                      >
+                                        <span class="icon-btn"
+                                          ><i class="fa-solid fa-headphones"></i
+                                        ></span>
+                                        Browse Now
+                                      </a>
+                                    </div> -->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-5 d-sm-none d-lg-block col-sm-12 banner-img">
+                            <img src={% static "img/header.png" %}
+                            class="" alt="image" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section
+                    class="tf-offer fl-st-1 fl-section"
+                    style="position: relative; background: #fff"
+                  >
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="box-offer-special">
+                            <div
+                              class="feature-offer wow fadeInLeft"
+                              data-wow-delay="200ms"
+                              data-wow-duration="1500ms"
+                            >
+                              <img src={% static "img/offerSpecial.jpg" %}
+                              alt="image" />
+                            </div>
+                            <div class="content-offer">
+                              <div class="fl-title-heading">
+                                <div class="sub-heading theme-color">
+                                  Main heading
+                                </div>
+                                <h2 class="title-heading muted2-color">
+                                  About Us
+                                </h2>
+                              </div>
+                              <p >
+                                Lorem Ipsum is simply dummy text of the printing
+                                and typesetting industry. Lorem Ipsum has been
+                                the industry's standard dummy text ever since
+                                the 1500s, when an unknown printer took a galley
+                                of type and scrambled it to make a type specimen
+                                book.It has survived not only five centuries,
+                                but also the leap into electronic typesetting,
+                                remaining essentially unchanged.
+                              </p>
+                              <div class="btn-offer">
+                                <a
+                                  href="#"
+                                  class="themesflat-button3 bg-theme st-3"
+                                >
+                                  <span class="icon-btn"></span
+                                  ><i class="fa-solid fa-headphones"></i>
+                                  Learn More
+                                </a>
+                              </div>
+                            </div>
+                            <!--/box-offer-special-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  {% if user.is_authenticated %} 
+                    <section class="tf-story fl-st-1 fl-section">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-6 col-md-12 col-sx-12">
+                            <div class="box-wrap-story">
+                              <div class="fl-title-heading">
+                                <div class="sub-heading theme-color">
+                                  Headline
+                                </div>
+                                <h2 class="title-heading">
+                                  Main<br />
+                                  heading
+                                </h2>
+                                <p class="wrap" >
+                                  There are many variations of passages of Lorem
+                                  Ipsum available, but the majority have suffered
+                                  alteration in some form, by injected humour, or
+                                  randomised words which don't look even slightly
+                                  believable. If you are going to use a passage of
+                                  Lorem Ipsum, you need to be sure there isn't
+                                  anything embarrassing hidden in the middle of
+                                  text.
+                                </p>
+                              </div>
+                              <div class="btn-story">
+                                <a
+                                  href="#"
+                                  class="themesflat-button3 bg-theme st-2"
+                                >
+                                  <span class="icon-btn"
+                                    ><i class="fa-solid fa-headphones"></i
+                                  ></span>
+                                  Learn More
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-12 col-sx-12">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label for="inputState" class="form-label"
+                                  >Your Language</label
+                                >
+                                <select
+                                  id="inputState"
+                                  class="form-select mb-0"
+                                  style="background: #fff; padding: 8px 10px"
+                                >
+                                  <option selected value="0">Select Language</option>
+                                  {% for lang_code, lang_name in LANGUAGES %}
+                                    <option value="{{ lang_code }}">{{ lang_name }}</option>
+                                  {% endfor %}
+                                </select>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="inputState" class="form-label"
+                                  >Foreign Language</label
+                                >
+                                <select
+                                  id="inputForeignLanguage"
+                                  class="form-select mb-0"
+                                  style="background: #fff; padding: 8px 10px"
+                                >
+                                  <option selected>Select Language</option>
+                                  {% for lang_code, lang_name in LANGUAGES_all %}
+                                    <option value="{{ lang_code }}">{{ lang_name }}</option>
+                                  {% endfor %}
+                                </select>
+                              </div>
+                            </div>
+                            <p id="download" style="display: none;">{{ download }}</p>
+                            <div
+                              class="carousel-episodes wow fadeInUp"
+                              data-wow-delay="200ms"
+                              data-wow-duration="1500ms"
+                            >
+                              <div
+                                class="themesflat-carousel clearfix wow fadeInUp"
+                                data-margin="30"
+                                data-item="2"
+                                data-item2="3"
+                                data-item3="2"
+                                data-item4="1"
+                                data-auto="false"
+                              >
+                              <div class="owl-carousel owl-theme dots-none" id="audio_list">
+                                {% for key, values in audio_dict.items %}
+                                  {% with count=0 %}
+                                  {% for data in values %}
+                                  {% with count=count|add:1 %}
+                                    <div class="item-episodes">
+                                    
+                                      <div class="box-feature fl-rela fl-st-1">
+                                      
+                                        <img src="{% static 'img/1.png' %}"
+                                        alt="image" style="width: 100%;" />
+                                        {% if download == 1 %}
+                                          <div class="meta">
+                                            <a href="#" class="free">Free</a>
+                                          </div>
+                                        {%else%}
+                                          <div class="meta Premium">
+                                            <a href="#" class="Premium">Premium</a>
+                                          </div>
+                                          
+                                        {% endif %}
+                                        <div class="box-icon-3">
+                                          <a
+                                            href="/media/{{data.0}}"
+                                            download
+                                            class="player-m play-pause-button"
+                                            ><i class="fa-solid fa-download"></i
+                                          ></a>
+                                        </div>
+                                      </div>
+                                      <div class="box-content">
+                                        <a href="#" class="title-episodes"
+                                          >{{ data.1 }}</a
+                                        >
+                                      </div>
+                                    
+                                    </div>
+                                    {% endwith %}
+                                  {% endfor %}
+                                  {% endwith %}
+                                {% endfor %}
+                             
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  {% endif %}
+
+                  <section class="tf-about-us fl-st-1 fl-section-top">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="box-about-us">
+                            <div class="fl-title-heading ct">
+                              <h2
+                                class="title-heading white-color wow fadeInDown"
+                                data-wow-delay="0ms"
+                                data-wow-duration="1500ms"
+                              >
+                                Hey, Comcato Play Wow in The World
+                              </h2>
+                              <p
+                                class="white-color wow fadeInDown"
+                                data-wow-delay="200ms"
+                                data-wow-duration="1500ms"
+                              >
+                                There are many variations of passages of Lorem
+                                Ipsum available, but the majority have suffered
+                                alteration in some form, by injected humour
+                              </p>
+                              <div
+                                class="box-icon-4 wow fadeInDown"
+                                data-wow-delay="400ms"
+                                data-wow-duration="1500ms"
+                              >
+                                <a
+                                  href="https://www.youtube.com/watch?v=wfKs3ProM7M"
+                                  class="popup-video"
+                                  ><i class="icon-playplay"></i
+                                ></a>
+                              </div>
+                            </div>
+                            <img src={% static "img/feature-about.png" %}
+                            class="feature-about" alt="image" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="tf-story fl-st-1 fl-section-top">
+
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-12">
+                          <h2
+                              class="title-heading wow fadeInDown text-center mb-2"
+                              data-wow-delay="0ms"
+                              data-wow-duration="1500ms"
+                            >
+                              Our Pricing
+                            </h2>
+                            <p
+                                class=" wow fadeInDown text-center mb-4"
+                                data-wow-delay="200ms"
+                                data-wow-duration="1500ms"
+                              >Lorem Ipsum available, but the majority have suffered.
+                              </p>
+
+
+                        </div>
+                      </div>
+                      <div class="card__container grid">
+
+                        <!--==================== CARD 1 ====================-->
+
+
+                        <article class="card__content grid">
+                          <div class="card__pricing">
+                            <div class="card__pricing-number">
+                              <span class="card__pricing-symbol">$</span>0
+                            </div>
+                            <span class="card__pricing-month">/month</span>
+                          </div>
+                    
+                          <header class="card__header">
+                            <div class="card__header-circle grid">
+                              <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/free-coin.png" alt="" class="card__header-img">
+                            </div>
+                    
+                            <span class="card__header-subtitle">Free plan</span>
+                            <h1 class="card__header-title">Basic</h1>
+                          </header>
+                    
+                          <ul class="card__list grid">
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">3 user request</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">10 downloads por day</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Daily content updates</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Fully editable files</p>
+                            </li>
+                          </ul>
+                    
+                          <button class="card__button">Choose this plan</button>
+                        </article>
+                    
+                        <!--==================== CARD 2 ====================-->
+                        <article class="card__content grid">
+                          <div class="card__pricing">
+                            <div class="card__pricing-number">
+                              <span class="card__pricing-symbol">$</span>19
+                            </div>
+                            <span class="card__pricing-month">/month</span>
+                          </div>
+                    
+                          <header class="card__header">
+                            <div class="card__header-circle grid">
+                              <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/pro-coin.png" alt="" class="card__header-img">
+                            </div>
+                    
+                            <span class="card__header-subtitle">Most popular</span>
+                            <h1 class="card__header-title">Professional</h1>
+                          </header>
+                    
+                          <ul class="card__list grid">
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">100 user request</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Unlimited downloads</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Unlock all features from our site</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Daily content updates</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Fully editable files</p>
+                            </li>
+                          </ul>
+                    
+                          <button class="card__button">Choose this plan</button>
+                        </article>
+                    
+                        <!--==================== CARD 3 ====================-->
+                        <article class="card__content grid">
+                          <div class="card__pricing">
+                            <div class="card__pricing-number">
+                              <span class="card__pricing-symbol">$</span>29
+                            </div>
+                            <span class="card__pricing-month">/month</span>
+                          </div>
+                    
+                          <header class="card__header">
+                            <div class="card__header-circle grid">
+                              <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/enterprise-coin.png" alt="" class="card__header-img">
+                            </div>
+                    
+                            <span class="card__header-subtitle">For agencies</span>
+                            <h1 class="card__header-title">Enterprise</h1>
+                          </header>
+                    
+                          <ul class="card__list grid">
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Unlimited  user request</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Unlimited downloads</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Unlock all features from our site</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Daily content updates</p>
+                            </li>
+                            <li class="card__list-item">
+                              <i class="uil uil-check card__list-icon"></i>
+                              <p class="card__list-description">Fully editable files</p>
+                            </li>
+                          </ul>
+                    
+                          <button class="card__button">Choose this plan</button>
+                        </article>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="tf-sub fl-st-1">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="fl-flex fl-max fl-sub">
+                            <div class="fl-title-heading">
+                              <div
+                                class="sub-heading theme-color wow fadeInDown"
+                                data-wow-delay="0ms"
+                                data-wow-duration="1500ms"
+                              >
+                                Newsletter
+                              </div>
+                              <h2
+                                class="title-heading white-color wow fadeInDown"
+                                data-wow-delay="200ms"
+                                data-wow-duration="1500ms"
+                              >
+                                Subscribe Now
+                              </h2>
+                            </div>
+                            <p
+                              class="wrap-sub white-color wow fadeInDown"
+                              data-wow-delay="400ms"
+                              data-wow-duration="1500ms"
+                            >
+                              Get notified about updates and be the first to get
+                              early access to new episodes.
+                            </p>
+                          </div>
+                          <div
+                            class="form-sub wow fadeInUp"
+                            data-wow-delay="200ms"
+                            data-wow-duration="1500ms"
+                          >
+                            <form
+                              id="subscribe-form"
+                              action="#"
+                              method="GET"
+                              accept-charset="utf-8"
+                              class="form-submit"
+                            >
+                              <input
+                                name="email"
+                                value=""
+                                class="email"
+                                type="text"
+                                required
+                                placeholder="Enter email address"
+                              />
+                              <button id="submit" name="submit" type="submit">
+                                <span><i class="fas fa-paper-plane"></i></span>
+                                Subscribe Now
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <footer id="footer">
+                    <div class="footer-bottom">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="box-bottom">
+                              <ul class="list-bottom fl-flex">
+                                <li class="fl-rela border-right">
+                                  <a href="#">Contact</a>
+                                </li>
+                                <li class="fl-rela border-right">
+                                  <a href="#">Imprint</a>
+                                </li>
+                                <li class="mgr-none">
+                                  <a href="#">Privacy</a>
+                                </li>
+                              </ul>
+                              <p class="coppy-right">
+                                Copyright © 2024 Comcato
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </footer>
+                </div>
+                <!--.page-content-->
+              </div>
+              <!--#inner-content-->
+            </div>
+            <!--site-content-->
+          </div>
+          <!--#content-wrap-->
+        </div>
+        <!--/#main-content-->
+      </div>
+    </div>
+
+    <script>
+      var download = document.getElementById("download").innerText
+
+      var data = JSON.parse("{{data|escapejs}}"); 
+      console.log(data)
+      document.addEventListener('DOMContentLoaded', function() {
+        var foreignLanguageDropdown = document.getElementById('inputForeignLanguage');
+      
+        foreignLanguageDropdown.addEventListener('change', function() {
+          var selectedLanguage = foreignLanguageDropdown.value;
+          document.getElementById('audio_list').innerHTML=''
+          for(var i=0;i<data[selectedLanguage].length;i++){
+            console.log(data[selectedLanguage][i])
+            status=''
+            if(download==1){
+              status = 'free'
+            }
+            else{
+              status = 'Premium'
+            }
+            document.getElementById('audio_list').innerHTML+=`
+            
+                <div class="item-episodes">
+                                        
+                  <div class="box-feature fl-rela fl-st-1">
+                  
+                    <img src="{% static 'img/1.png' %}"
+                    alt="image" style="width: 100%;" />
+                  
+                    <div class="meta ${status}">
+                      <a href="#" class="${status}">${status}</a>
+                    </div>
+                  
+                    <div class="box-icon-3">
+                      <a
+                        href="/media/${data[selectedLanguage][i][0]}"
+                        download
+                        class="player-m play-pause-button"
+                        ><i class="fa-solid fa-download"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="box-content">
+                    <a href="#" class="title-episodes"
+                      >${data[selectedLanguage][i][1]}</a
+                    >
+                  </div>
+                
+              </div>
+            
+            `
+          }
+          
+        });
+      });
+    </script>
+    <a id="scroll-top"></a>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Select JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+    <!-- Bootstrap Select Country JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select-country@4.2.0/dist/js/bootstrap-select-country.min.js"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery-validate.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/shortcodes.js' %}"></script>
+    <!--animation-->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/animation.js' %}"></script>
+    <!--owl.carousel-->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel2.thumbs.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select-country@4.2.0/dist/js/bootstrap-select-country.min.js"></script>
+  </body>
+</html>

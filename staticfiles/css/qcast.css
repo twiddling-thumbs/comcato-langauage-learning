@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'qcast';
+  src:  url('../font/qcastfad0.eot?hm7m7o');
+  src:  url('../font/qcastfad0.eot?hm7m7o#iefix') format('embedded-opentype'),
+    url('../font/qcastfad0.ttf?hm7m7o') format('truetype'),
+    url('../font/qcastfad0.woff?hm7m7o') format('woff'),
+    url('../font/qcastfad0.svg?hm7m7o#qcast') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'qcast' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ic-next-slider:before {
+  content: "\e91e";
+}
+.icon-ic-prev-slider:before {
+  content: "\e91f";
+}
+.icon-ic-forward:before {
+  content: "\e91b";
+}
+.icon-ic-backward:before {
+  content: "\e91c";
+}
+.icon-ic-search:before {
+  content: "\e91d";
+}
+.icon-ic-lshare:before {
+  content: "\e919";
+}
+.icon-ic-volume:before {
+  content: "\e91a";
+}
+.icon-ic-cloud:before {
+  content: "\e917";
+}
+.icon-ic-share:before {
+  content: "\e918";
+}
+.icon-ic-m:before {
+  content: "\e914";
+}
+.icon-ic-mess:before {
+  content: "\e915";
+}
+.icon-ic-user:before {
+  content: "\e916";
+}
+.icon-ic-mail:before {
+  content: "\e911";
+}
+.icon-ic-map:before {
+  content: "\e912";
+}
+.icon-ic-phone:before {
+  content: "\e913";
+}
+.icon-apple:before {
+  content: "\e90e";
+}
+.icon-wf-rss:before {
+  content: "\e90f";
+}
+.icon-spotify:before {
+  content: "\e910";
+}
+.icon-user:before {
+  content: "\e900";
+}
+.icon-emailemail:before {
+  content: "\e901";
+}
+.icon-g-plus:before {
+  content: "\e902";
+}
+.icon-note-note:before {
+  content: "\e903";
+}
+.icon-longgg-right:before {
+  content: "\e904";
+}
+.icon-about1:before {
+  content: "\e905";
+}
+.icon-about2:before {
+  content: "\e906";
+}
+.icon-in-icon:before {
+  content: "\e907";
+}
+.icon-musical-note:before {
+  content: "\e908";
+}
+.icon-about3:before {
+  content: "\e909";
+}
+.icon-mapmap:before {
+  content: "\e90a";
+}
+.icon-phonephone:before {
+  content: "\e90b";
+}
+.icon-playplay:before {
+  content: "\e90c";
+}
+.icon-menu:before {
+  content: "\e90d";
+}
+.icon-arrow-right2:before {
+  content: "\ea3c";
+}
+.icon-arrow-left2:before {
+  content: "\ea40";
+}
