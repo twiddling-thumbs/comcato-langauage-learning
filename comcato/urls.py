@@ -9,6 +9,5 @@ urlpatterns = [
     path('payments/',views.Userpayments,name='payments'),
     path('Userpayments/',views.Userpayments_add,name='Userpayments'),
     path('articles/',views.articles,name='articles'),
-    path('add_profile/',views.add_Profile,name='add_profile'),
    
 ]

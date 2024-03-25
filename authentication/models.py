@@ -43,16 +43,16 @@ class Interest(models.Model):
 class Userdetail(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
-    firstname = models.TextField(null=True, blank=True)
-    lastname = models.TextField(null=True, blank=True)
     address = models.TextField(null=True, blank=True)
-    Gender = models.TextField(null=True, blank=True)
-    Country = models.TextField(null=True, blank=True)
+    gender = models.TextField(null=True, blank=True)
+    country = models.TextField(null=True, blank=True)
     interests = models.ManyToManyField(Interest, blank=True)
     favourite_topics = models.ManyToManyField(Favouritetopic, blank=True)
     your_language = models.ManyToManyField(Language, blank=True)
+    email_token = models.CharField(max_length=200,null=True, blank=True)
+    is_verify = models.BooleanField(default=False,null=True, blank=True)
 
     def __str__(self):
-        return f"{self.firstname}'s Userdetails"
+        return f"{self.user}'s Userdetails"
    
 

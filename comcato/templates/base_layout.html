@@ -1,0 +1,481 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comcato || Home Page</title>
+    
+    <link
+      rel="manifest"
+      href="{% static 'img/favicon_io/site.webmanifest' %}"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'img/favicon_io/android-chrome-192x192.png' %}"
+    />
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <!--video-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <!--animation-->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/pricing.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+  <!-- Bootstrap Select CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Select Country CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select-country@4.2.0/dist/css/bootstrap-select-country.min.css"
+  />
+
+    <style>
+
+      #style-1::-webkit-scrollbar-track
+      {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+      }
+
+      #style-1::-webkit-scrollbar
+      {
+        width: 12px;
+        background-color: #F5F5F5;
+      }
+
+      #style-1::-webkit-scrollbar-thumb
+      {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+      }
+      a.free {
+        color: #ffffff !important;
+        font-weight: 700;
+        background: #1bab1bc4 !important;
+    }
+
+      a.Premium {
+        color: #ffffff !important;
+        font-weight: 700;
+        background: #f14242 !important;
+      }
+      .bootstrap-select>.dropdown-toggle.bs-placeholder, 
+      .bootstrap-select>.dropdown-toggle.bs-placeholder:active,
+      .bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
+      .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+        color: #90a2ad;
+        background: white;
+        border-radius: 16px;
+      }
+      .bootstrap-select>.dropdown-toggle{
+        color: #90a2ad;
+        background: white;
+        border-radius: 16px;
+      }
+      .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        width: 200px;
+    }
+
+    .spinner {
+      position: relative;
+      width: 35.2px;
+      height: 35.2px;
+    }
+
+    .spinner::before,
+    .spinner::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      display: block;
+      animation: spinner-b4c8mmhg 0.5s backwards, spinner-49opz7hg 1.25s 0.5s infinite ease;
+      border: 8.8px solid #021f3c;
+      border-radius: 50%;
+      box-shadow: 0 -52.8px 0 -8.8px #021f3c;
+      position: absolute;
+    }
+
+    .spinner::after {
+      animation-delay: 0s, 1.25s;
+    }
+
+    @keyframes spinner-b4c8mmhg {
+      from {
+          box-shadow: 0 0 0 -8.8px #021f3c;
+      }
+    }
+
+    @keyframes spinner-49opz7hg {
+      to {
+          transform: rotate(360deg);
+      }
+    }
+
+    .preload{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .dropdown-menu.show > a:hover {
+      background: #9f9f9f;
+      color: #fff;
+    }
+    .countrypicker > .dropdown-menu.show {
+      max-width: 250px;
+    }
+    .dropdown-toggle::after {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 0.3em;
+      vertical-align: middle;
+      content: "";
+      border-top: 0.3em solid #fff;
+      border-right: 0.3em solid transparent;
+      border-left: 0.3em solid transparent;
+    }
+    .banner-container{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .owl-item {
+      display: none;
+    }
+    .owl-item.cloned.active {
+      display: block;
+    }
+    @media (min-width: 300px) and (max-width: 600px) {
+      .top-header.fl-st-2 {
+        flex-direction: column-reverse;
+        align-items: flex-end !important;
+        gap: 10px !important;
+        margin-right: 40px !important;
+    }
+    .banner-container{
+      height: 80vh;
+      width: 100%;
+    }
+    .banner-img1{
+      display:none;
+    }
+    }
+
+    #profile-upload {
+        background-image: url('');
+        background-size: cover;
+        background-position: center;
+        height: 230px;
+        width: 230px;
+        border: 1px solid #bbb;
+        position: relative;
+        top: 20px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 0px;
+      }
+      #profile-upload:hover input.upload {
+        display: block;
+      }
+      #profile-upload:hover {
+        border: 1px solid gray;
+      }
+      #profile-upload:hover .hvr-profile-img {
+        opacity: 1;
+      }
+      .hvr-profile-img {
+        opacity: 0.3;
+      }
+
+      #profile-upload input.upload {
+        z-index: 1;
+        left: 0;
+        margin: 0;
+        bottom: 0;
+        top: 0;
+        padding: 0;
+        opacity: 0;
+        outline: none;
+        cursor: pointer;
+        position: absolute;
+
+        width: 100%;
+        display: none;
+      }
+
+      .icon {
+        width: 75px;
+        height: 75px;
+
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .camera4 {
+        display: block;
+        width: 70%;
+        height: 50%;
+        position: absolute;
+        top: 30%;
+        left: 15%;
+        background-color: #000;
+        border-radius: 5px;
+      }
+      .camera4:after {
+        content: '';
+        display: block;
+        width: 22px;
+        height: 22px;
+        border: 7px solid #fff;
+        position: absolute;
+        top: 19%;
+        left: 29%;
+        background-color: #000;
+        border-radius: 15px;
+      }
+      .camera4:before {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 10px;
+        position: absolute;
+        top: -16%;
+        left: 25%;
+        background-color: #000;
+        border-radius: 10px;
+      }
+
+      #profile-upload {
+        background-image: url('');
+        background-size: cover;
+        background-position: center;
+        height: 230px;
+        width: 230px;
+        border: 1px solid #bbb;
+        position: relative;
+        top: 20px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 0px;
+      }
+      @media (max-width: 600px) {
+        #profile-upload {
+          float: none;
+          margin: auto;
+        }
+      }
+      .form-contact .icon-form {
+        position: absolute;
+        right: 35px;
+        top: 45px !important;
+      }
+      select.genderSelect {
+        border-radius: 0;
+        border: 2px solid #e5edf4;
+        color: #87889b;
+        padding: 13px 80px 13px 26px;
+        margin-bottom: 30px;
+        background: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        /* text-indent: 1px; */
+        text-overflow: '';
+      }
+   
+      .ui.dropdown {
+        max-width: 800px;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .ui.selection.dropdown .menu {
+          /*      max-height: 8.01428571rem; /* + 1.335714285 to 9.349999995rem */
+          /*      max-height: 9.349999995rem; /* Adds a half */
+          max-height: 16.02857142rem; /* Double size */
+        }
+      }
+      @media only screen and (min-width: 768px) {
+        .ui.selection.dropdown .menu {
+          /*         max-height: 10.68571429rem; /* + 1.3357142863 to 12.0214285763rem */
+          max-height: 12.0214285763rem;
+        }
+      }
+      @media only screen and (min-width: 992px) {
+        .ui.selection.dropdown .menu {
+          max-height: 16.02857143rem; /* + 1.3357142858 to 17.3642857158rem */
+        }
+      }
+      @media only screen and (min-width: 1920px) {
+        .ui.selection.dropdown .menu {
+          max-height: 21.37142857rem; /* + 1.3357142856 to 22.7071428556rem */
+        }
+      }
+      .langSelect.label.ui.selection.fluid.dropdown.multiple {
+        border-radius: 0;
+        border: 2px solid #e5edf4;
+        color: #87889b;
+        padding: 13px 80px 13px 26px;
+        margin-bottom: 30px;
+        background: transparent;
+    }
+    i.dropdown.icon {
+      display: none;
+    }
+    .ui.default.dropdown:not(.button)>.text, .ui.dropdown:not(.button)>.default.text {
+        color: #87889b;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'rubik';
+        margin: 0;
+    }
+    a.ui.label.transition.visible {
+      position: relative;
+      padding-left: 23px;
+  }
+  .ui.label>.icon {
+      width: auto;
+      margin-left: 21px !important;
+      color: red;
+      position: absolute;
+      left: -10px
+}
+
+
+.ui.fluid.dropdown{
+  display: block;
+  width: 100%;
+  min-width: 0;
+  border-radius: 0;
+  border: 2px solid #e5edf4;
+  color: #87889b;
+  padding: 13px 80px 13px 26px;
+  margin-bottom: 30px;
+  background: transparent;
+}
+
+    </style>
+  </head>
+
+  <body class="">
+    <!-- Preloader -->
+    <div id="preload" class="preload">
+          <div class="spinner"></div>
+    </div>
+    <div id="wrapper">
+      <div id="page">
+        
+
+        <header id="header">
+          <div id="site-header">
+              <div class="container-fluid">
+                  <div class="site-header-inner fl-st-2">
+                      <div class="logo1 fl-st-2">
+                        <div style=" min-width: 100px !important; max-width: 150px !important; width: 100%;">
+                          <img src="{% static 'img/logo.png' %}"  alt="" />
+                        </div>
+                      </div>
+                      <div class="top-header fl-st-2" style="justify-content: flex-end;">
+                          <div class="nav-wrap fl-st-2">
+                           
+                              <div class="btn-menu"><span></span></div>
+                              <nav id="mainnav" class="mainnav">
+                                  <ul class="menu">
+                                    <li class="item text-white">
+                                      <a href="{% url 'home' %}" title="">HOME</a>
+                                    </li>
+                                    <li class="item text-white">
+                                        <a href="{% url 'articles' %}" title="">ARTICLE</a>
+                                    </li>
+                                      
+                                      <li class="item text-black" style="display: inline-flex; justify-content: space-between; align-items: center; gap: 50px;">
+                                        <select class="selectpicker countrypicker text-black" data-flag="true"  data-live-search="true" data-default="GB" ></select>
+
+                                        
+                                        {% if user.is_authenticated %}
+                                        <ul class="navbar-nav">
+                                          <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" width="40" height="40" class="rounded-circle">
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                              <a class="dropdown-item" href="{% url 'profile' %}" style="color: #021f3c;">Profile</a>
+                                              <a class="dropdown-item" href="{% url 'logout' %}"  style="color: #021f3c;">Log Out</a>
+                                            </div>
+                                          </li>   
+                                        </ul>
+
+                                        {% else %}
+                                          <a href="{% url 'login' %}" class="themesflat-button3 bg-white st-2 px-3" >
+                                            <span class="icon-btn"
+                                              ><i class="fa-solid fa-arrow-right-to-bracket"></i
+                                            ></span>
+                                            Login
+                                          </a>
+                                        {% endif %}
+                                      </li>
+                                    
+                                  </ul>
+                                  <!-- /.menu -->
+                              </nav>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </header>
+
+        
+    {% block content  %}
+
+
+
+    {% endblock %}
+
+    <a id="scroll-top"></a>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Select JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+    <!-- Bootstrap Select Country JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select-country@4.2.0/dist/js/bootstrap-select-country.min.js"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery-validate.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/shortcodes.js' %}"></script>
+    <!--animation-->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/animation.js' %}"></script>
+    <!--owl.carousel-->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel2.thumbs.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select-country@4.2.0/dist/js/bootstrap-select-country.min.js"></script>
+    </body>
+</html>

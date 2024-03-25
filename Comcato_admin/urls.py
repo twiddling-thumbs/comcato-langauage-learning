@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('comcato.urls')),
     path('authentication/',include('authentication.urls')),
+    # path('social-auth/', include('social_django.urls', namespace='social'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

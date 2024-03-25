@@ -13,10 +13,15 @@ class ProfileForm(forms.Form):
     address = forms.CharField(label='Address', max_length=255)
     country = forms.CharField(label='Country', max_length=100)
     gender = forms.ChoiceField(label='Gender', choices=[('1', 'Male'), ('2', 'Female')])
-    profile_picture = forms.FileField(label='', required=False   , 
-                           widget=forms.FileInput(attrs={'class': 'upload'}),)
-    
+    # profile_picture = forms.FileField(label='', required=False   , 
+    #                        widget=forms.FileInput(attrs={'class': 'upload'}),)
+    profile_picture = forms.FileField(
+        label='',
+        widget=forms.FileInput(attrs={'class': 'upload'}),
+        required=True,
+    )
 
+   
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
         self.fields['language'] = forms.MultipleChoiceField(

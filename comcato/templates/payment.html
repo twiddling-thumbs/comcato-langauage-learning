@@ -1,676 +1,230 @@
-
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comcato || Home Page</title>
-    
-    <link
-      rel="manifest"
-      href="{% static 'img/favicon_io/site.webmanifest' %}"
-    />
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="{% static 'img/favicon_io/android-chrome-192x192.png' %}"
-    />
-
-    <!-- Theme Style -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
-    <!--video-->
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
-    <!--animation-->
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/pricing.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-
-    <!-- Bootstrap Select CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap Select Country CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-select-country@4.2.0/dist/css/bootstrap-select-country.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css"
-    />
-
-    <style>
-            a.free {
-              color: #ffffff !important;
-              font-weight: 700;
-              background: #1bab1bc4 !important;
-            }
-
-            a.Premium {
-              color: #ffffff !important;
-              font-weight: 700;
-              background: #f14242 !important;
-            }
-            .bootstrap-select > .dropdown-toggle.bs-placeholder,
-            .bootstrap-select > .dropdown-toggle.bs-placeholder:active,
-            .bootstrap-select > .dropdown-toggle.bs-placeholder:focus,
-            .bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
-              color: #90a2ad;
-              background: white;
-              border-radius: 16px;
-            }
-            .bootstrap-select > .dropdown-toggle {
-              color: #90a2ad;
-              background: white;
-              border-radius: 16px;
-            }
-            .bootstrap-select:not([class*='col-']):not([class*='form-control']):not(
-                .input-group-btn
-              ) {
-              width: 200px;
-            }
-
-            .spinner {
-              position: relative;
-              width: 35.2px;
-              height: 35.2px;
-            }
-
-            .spinner::before,
-            .spinner::after {
-              content: '';
-              width: 100%;
-              height: 100%;
-              display: block;
-              animation: spinner-b4c8mmhg 0.5s backwards,
-                spinner-49opz7hg 1.25s 0.5s infinite ease;
-              border: 8.8px solid #021f3c;
-              border-radius: 50%;
-              box-shadow: 0 -52.8px 0 -8.8px #021f3c;
-              position: absolute;
-            }
-
-            .spinner::after {
-              animation-delay: 0s, 1.25s;
-            }
-
-            @keyframes spinner-b4c8mmhg {
-              from {
-                box-shadow: 0 0 0 -8.8px #021f3c;
-              }
-            }
-
-            @keyframes spinner-49opz7hg {
-              to {
-                transform: rotate(360deg);
-              }
-            }
-
-            .preload {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-
-            #profile-upload {
-              background-image: url('');
-              background-size: cover;
-              background-position: center;
-              height: 230px;
-              width: 230px;
-              border: 1px solid #bbb;
-              position: relative;
-              top: 20px;
-              border-radius: 50%;
-              overflow: hidden;
-
-              float: left;
-              margin-right: 30px;
-              margin-bottom: 0px;
-            }
-            #profile-upload:hover input.upload {
-              display: block;
-            }
-            #profile-upload:hover {
-              border: 1px solid gray;
-            }
-            #profile-upload:hover .hvr-profile-img {
-              opacity: 1;
-            }
-            .hvr-profile-img {
-              opacity: 0.3;
-            }
-
-            #profile-upload input.upload {
-              z-index: 1;
-              left: 0;
-              margin: 0;
-              bottom: 0;
-              top: 0;
-              padding: 0;
-              opacity: 0;
-              outline: none;
-              cursor: pointer;
-              position: absolute;
-
-              width: 100%;
-              display: none;
-            }
-
-            .icon {
-              width: 75px;
-              height: 75px;
-
-              margin: 0;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-
-            .camera4 {
-              display: block;
-              width: 70%;
-              height: 50%;
-              position: absolute;
-              top: 30%;
-              left: 15%;
-              background-color: #000;
-              border-radius: 5px;
-            }
-            .camera4:after {
-              content: '';
-              display: block;
-              width: 22px;
-              height: 22px;
-              border: 7px solid #fff;
-              position: absolute;
-              top: 19%;
-              left: 29%;
-              background-color: #000;
-              border-radius: 15px;
-            }
-            .camera4:before {
-              content: '';
-              display: block;
-              width: 50%;
-              height: 10px;
-              position: absolute;
-              top: -16%;
-              left: 25%;
-              background-color: #000;
-              border-radius: 10px;
-            }
-
-            #profile-upload {
-              background-image: url('');
-              background-size: cover;
-              background-position: center;
-              height: 230px;
-              width: 230px;
-              border: 1px solid #bbb;
-              position: relative;
-              top: 20px;
-              border-radius: 50%;
-              overflow: hidden;
-
-              float: left;
-              margin-right: 30px;
-              margin-bottom: 0px;
-            }
-            @media (max-width: 600px) {
-              #profile-upload {
-                float: none;
-                margin: auto;
-              }
-            }
-            .form-contact .icon-form {
-              position: absolute;
-              right: 35px;
-              top: 45px !important;
-            }
-            select.genderSelect {
-              border-radius: 0;
-              border: 2px solid #e5edf4;
-              color: #87889b;
-              padding: 13px 80px 13px 26px;
-              margin-bottom: 30px;
-              background: transparent;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              /* text-indent: 1px; */
-              text-overflow: '';
-            }
-         
-            .ui.dropdown {
-              max-width: 800px;
-            }
-
-            @media only screen and (max-width: 767px) {
-              .ui.selection.dropdown .menu {
-                /*      max-height: 8.01428571rem; /* + 1.335714285 to 9.349999995rem */
-                /*      max-height: 9.349999995rem; /* Adds a half */
-                max-height: 16.02857142rem; /* Double size */
-              }
-            }
-            @media only screen and (min-width: 768px) {
-              .ui.selection.dropdown .menu {
-                /*         max-height: 10.68571429rem; /* + 1.3357142863 to 12.0214285763rem */
-                max-height: 12.0214285763rem;
-              }
-            }
-            @media only screen and (min-width: 992px) {
-              .ui.selection.dropdown .menu {
-                max-height: 16.02857143rem; /* + 1.3357142858 to 17.3642857158rem */
-              }
-            }
-            @media only screen and (min-width: 1920px) {
-              .ui.selection.dropdown .menu {
-                max-height: 21.37142857rem; /* + 1.3357142856 to 22.7071428556rem */
-              }
-            }
-            .langSelect.label.ui.selection.fluid.dropdown.multiple {
-              border-radius: 0;
-              border: 2px solid #e5edf4;
-              color: #87889b;
-              padding: 13px 80px 13px 26px;
-              margin-bottom: 30px;
-              background: transparent;
-          }
-          i.dropdown.icon {
-            display: none;
-          }
-          .ui.default.dropdown:not(.button)>.text, .ui.dropdown:not(.button)>.default.text {
-              color: #87889b;
-              font-size: 16px;
-              font-weight: 400;
-              font-family: 'rubik';
-              margin: 0;
-          }
-          a.ui.label.transition.visible {
-            position: relative;
-            padding-left: 23px;
-        }
-        .ui.label>.icon {
-            width: auto;
-            margin-left: 21px !important;
-            color: red;
-            position: absolute;
-            left: -10px
-      }
-    </style>
-  </head>
-
-  <body class="">
-    <!-- Preloader -->
-    <div id="preload" class="preload">
-      <div class="spinner"></div>
-    </div>
-    <div id="wrapper">
-      <div id="page">
-        <header id="header">
-          <div id="site-header">
-              <div class="container-fluid">
-                  <div class="site-header-inner fl-st-2">
-                      <div class="logo1 fl-st-2">
-                        <div style=" min-width: 100px !important; max-width: 150px !important; width: 100%;">
-                          <img src="{% static 'img/logo.png' %}" class="logo-image"
-                          alt="" />
+{% extends 'base_layout.html' %} {% load static %} {% block content %}
+     <!-- Main Content -->
+      <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+          <div id="site-content" class="site-content clearfix">
+            <div id="inner-content" class="inner-content-wrap">
+              <section class="page-title" style="background: #021f3c">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="baner-title fl-st-4">
+                        <h2
+                          class="title-page white-color wow fadeInDown"
+                          data-wow-delay="200ms"
+                          data-wow-duration="1500ms"
+                        >
+                          Payments
+                        </h2>
+                        <div class="breadcrumbs">
+                          <ul class="fl-flex">
+                            <li>
+                              <a
+                                href="index-2.html"
+                                class="white-color wow fadeInUp"
+                                data-wow-delay="200ms"
+                                data-wow-duration="1500ms"
+                                >HOME</a
+                              >
+                            </li>
+                            <li class="breadcrumbs-inner">
+                              <span
+                                class="trail-end white-color wow fadeInUp"
+                                data-wow-delay="400ms"
+                                data-wow-duration="1500ms"
+                                >payments</span
+                              >
+                            </li>
+                          </ul>
                         </div>
+                        <!--/breadcrumbs-->
                       </div>
-                      <div class="top-header fl-st-2" style="justify-content: flex-end;">
-                          <div class="nav-wrap fl-st-2">
-                              <div class="btn-menu"><span></span></div>
-                              <nav id="mainnav" class="mainnav">
-                                  <ul class="menu">
-                                    <li class="item text-white">
-                                      <a href="{% url 'home' %}" title="">HOME</a>
-                                  </li>
-                                  <li class="item text-white">
-                                      <a href="{% url 'articles' %}" title="">ARTICLE</a>
-                                  </li>
-                                      
-                                      <li class="item text-black" style="display: inline-flex; justify-content: space-between; align-items: center; gap: 50px;">
-                                        <select class="selectpicker countrypicker text-black" data-flag="true"  data-live-search="true" data-default="GB" ></select>
-
-                                        {% if user.is_authenticated %}
-                                        <ul class="navbar-nav">
-                                          <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" width="40" height="40" class="rounded-circle">
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                              <a class="dropdown-item" href="{% url 'profile' %}" style="color: #021f3c;">Profile</a>
-                                              <a class="dropdown-item" href="{% url 'logout' %}"  style="color: #021f3c;">Log Out</a>
-                                            </div>
-                                          </li>   
-                                        </ul>
-
-                                        {% else %}
-                                        <a href="{% url 'login' %}" class="themesflat-button3 bg-white st-2" style="background-color: #021f3c;">
-                                          <span class="icon-btn"
-                                            ><i class="fa-solid fa-arrow-right-to-bracket"></i
-                                          ></span>
-                                          Login
-                                        </a>
-                                        {% endif %}
-
-
-                                      
-                                      </li>
-                                    
-                                  </ul>
-                                  <!-- /.menu -->
-                              </nav>
-                          </div>
-                          {% comment %} <div class="search-header fl-st-2">
-                              <div id="header-search">
-                                  <a href="#" class="search-box header-search-icon white-color">
-                                      <i class="fas fa-search"></i>
-                                  </a>
-                                  <form role="search" method="get" class="header-search-form" action="#">
-                                      <input type="text" value="" name="s" class="header-search-field" placeholder="Search...">
-                                      <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
-                                  </form>
-                              </div>
-                              <div class="list-menu">
-                                  <div class="menu-box theme-color navigation-side-menu">
-                                      <i class="icon-note-note"></i>
-                                  </div>
-                              </div>
-                          </div> {% endcomment %}
-                      </div>
+                      <!--/baner-title-->
+                    </div>
                   </div>
-              </div>
-          </div>
-        </header>
+                </div>
+              </section>
 
+              <section class="tf-story fl-st-1 fl-section-top">
+                <form
 
-        <!-- Main Content -->
-        <div id="main-content" class="site-main clearfix">
-          <div id="content-wrap">
-            <div id="site-content" class="site-content clearfix">
-              <div id="inner-content" class="inner-content-wrap">
-                <section class="page-title" style="background: #021f3c">
+                method="post" 
+                enctype="multipart/form-data" 
+                action="{% url 'Userpayments' %}" 
+              >
+              {% csrf_token %} 
                   <div class="container">
                     <div class="row">
                       <div class="col-12">
-                        <div class="baner-title fl-st-4">
-                          <h2
-                            class="title-page white-color wow fadeInDown"
-                            data-wow-delay="200ms"
+                        <h2
+                            class="title-heading wow fadeInDown text-center mb-2"
+                            data-wow-delay="0ms"
                             data-wow-duration="1500ms"
                           >
-                            Payments
+                            Our Pricing
                           </h2>
-                          <div class="breadcrumbs">
-                            <ul class="fl-flex">
-                              <li>
-                                <a
-                                  href="index-2.html"
-                                  class="white-color wow fadeInUp"
-                                  data-wow-delay="200ms"
-                                  data-wow-duration="1500ms"
-                                  >HOME</a
-                                >
-                              </li>
-                              <li class="breadcrumbs-inner">
-                                <span
-                                  class="trail-end white-color wow fadeInUp"
-                                  data-wow-delay="400ms"
-                                  data-wow-duration="1500ms"
-                                  >payments</span
-                                >
-                              </li>
-                            </ul>
-                          </div>
-                          <!--/breadcrumbs-->
-                        </div>
-                        <!--/baner-title-->
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <section class="tf-story fl-st-1 fl-section-top">
-                  <form
-
-                  method="post" 
-                  enctype="multipart/form-data" 
-                  action="{% url 'Userpayments' %}" 
-                >
-                {% csrf_token %} 
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-12">
-                          <h2
-                              class="title-heading wow fadeInDown text-center mb-2"
-                              data-wow-delay="0ms"
+                          <p
+                              class=" wow fadeInDown text-center mb-4"
+                              data-wow-delay="200ms"
                               data-wow-duration="1500ms"
-                            >
-                              Our Pricing
-                            </h2>
-                            <p
-                                class=" wow fadeInDown text-center mb-4"
-                                data-wow-delay="200ms"
-                                data-wow-duration="1500ms"
-                              >Lorem Ipsum available, but the majority have suffered.
-                              </p>
+                            >Lorem Ipsum available, but the majority have suffered.
+                            </p>
 
 
-                        </div>
-                      </div>
-                      <div class="card__container grid">
-
-                        <!--==================== CARD 1 ====================-->
-
-
-                        <article class="card__content grid">
-                          <div class="card__pricing">
-                            <div class="card__pricing-number">
-                              <span class="card__pricing-symbol">$</span>0
-                            </div>
-                            <span class="card__pricing-month">/month</span>
-                          </div>
-                    
-                          <header class="card__header">
-                            <div class="card__header-circle grid">
-                              <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/free-coin.png" alt="" class="card__header-img">
-                            </div>
-                    
-                            <span class="card__header-subtitle">Free plan</span>
-                            <h1 class="card__header-title">Basic</h1>
-                          </header>
-                    
-                          <ul class="card__list grid">
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">3 user request</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">10 downloads por day</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Daily content updates</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Fully editable files</p>
-                            </li>
-                          </ul>
-                    
-                          <button class="card__button">Choose this plan</button>
-                        </article>
-                    
-                        <!--==================== CARD 2 ====================-->
-                        <article class="card__content grid">
-                          <div class="card__pricing">
-                            <div class="card__pricing-number">
-                              <span class="card__pricing-symbol">$</span>19
-                            </div>
-                            <span class="card__pricing-month">/month</span>
-                          </div>
-                    
-                          <header class="card__header">
-                            <div class="card__header-circle grid">
-                              <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/pro-coin.png" alt="" class="card__header-img">
-                            </div>
-                    
-                            <span class="card__header-subtitle">Most popular</span>
-                            <h1 class="card__header-title">Professional</h1>
-                          </header>
-                    
-                          <ul class="card__list grid">
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">100 user request</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Unlimited downloads</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Unlock all features from our site</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Daily content updates</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Fully editable files</p>
-                            </li>
-                          </ul>
-                    
-                          <button class="card__button">Choose this plan</button>
-                        </article>
-                    
-                        <!--==================== CARD 3 ====================-->
-                        <article class="card__content grid">
-                          <div class="card__pricing">
-                            <div class="card__pricing-number">
-                              <span class="card__pricing-symbol">$</span>29
-                            </div>
-                            <span class="card__pricing-month">/month</span>
-                          </div>
-                    
-                          <header class="card__header">
-                            <div class="card__header-circle grid">
-                              <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/enterprise-coin.png" alt="" class="card__header-img">
-                            </div>
-                    
-                            <span class="card__header-subtitle">For agencies</span>
-                            <h1 class="card__header-title">Enterprise</h1>
-                          </header>
-                    
-                          <ul class="card__list grid">
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Unlimited  user request</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Unlimited downloads</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Unlock all features from our site</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Daily content updates</p>
-                            </li>
-                            <li class="card__list-item">
-                              <i class="uil uil-check card__list-icon"></i>
-                              <p class="card__list-description">Fully editable files</p>
-                            </li>
-                          </ul>
-                    
-                          <button class="card__button">Choose this plan</button>
-                        </article>
                       </div>
                     </div>
-                  </form>
-                  </section>
+                    <div class="card__container grid">
 
-                <section class="tf-listing fl-section-top">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-6"></div>
-                      <div class="col-lg-6"></div>
+                      <!--==================== CARD 1 ====================-->
+
+
+                      <article class="card__content grid">
+                        <div class="card__pricing">
+                          <div class="card__pricing-number">
+                            <span class="card__pricing-symbol">$</span>0
+                          </div>
+                          <span class="card__pricing-month">/month</span>
+                        </div>
+                  
+                        <header class="card__header">
+                          <div class="card__header-circle grid">
+                            <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/free-coin.png" alt="" class="card__header-img">
+                          </div>
+                  
+                          <span class="card__header-subtitle">Free plan</span>
+                          <h1 class="card__header-title">Basic</h1>
+                        </header>
+                  
+                        <ul class="card__list grid">
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">3 user request</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">10 downloads por day</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Daily content updates</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Fully editable files</p>
+                          </li>
+                        </ul>
+                  
+                        <button class="card__button">Choose this plan</button>
+                      </article>
+                  
+                      <!--==================== CARD 2 ====================-->
+                      <article class="card__content grid">
+                        <div class="card__pricing">
+                          <div class="card__pricing-number">
+                            <span class="card__pricing-symbol">$</span>19
+                          </div>
+                          <span class="card__pricing-month">/month</span>
+                        </div>
+                  
+                        <header class="card__header">
+                          <div class="card__header-circle grid">
+                            <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/pro-coin.png" alt="" class="card__header-img">
+                          </div>
+                  
+                          <span class="card__header-subtitle">Most popular</span>
+                          <h1 class="card__header-title">Professional</h1>
+                        </header>
+                  
+                        <ul class="card__list grid">
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">100 user request</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Unlimited downloads</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Unlock all features from our site</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Daily content updates</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Fully editable files</p>
+                          </li>
+                        </ul>
+                  
+                        <button class="card__button">Choose this plan</button>
+                      </article>
+                  
+                      <!--==================== CARD 3 ====================-->
+                      <article class="card__content grid">
+                        <div class="card__pricing">
+                          <div class="card__pricing-number">
+                            <span class="card__pricing-symbol">$</span>29
+                          </div>
+                          <span class="card__pricing-month">/month</span>
+                        </div>
+                  
+                        <header class="card__header">
+                          <div class="card__header-circle grid">
+                            <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/enterprise-coin.png" alt="" class="card__header-img">
+                          </div>
+                  
+                          <span class="card__header-subtitle">For agencies</span>
+                          <h1 class="card__header-title">Enterprise</h1>
+                        </header>
+                  
+                        <ul class="card__list grid">
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Unlimited  user request</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Unlimited downloads</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Unlock all features from our site</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Daily content updates</p>
+                          </li>
+                          <li class="card__list-item">
+                            <i class="uil uil-check card__list-icon"></i>
+                            <p class="card__list-description">Fully editable files</p>
+                          </li>
+                        </ul>
+                  
+                        <button class="card__button">Choose this plan</button>
+                      </article>
                     </div>
                   </div>
+                </form>
                 </section>
-              </div>
-              <!--#inner-content-->
+
+              <section class="tf-listing fl-section-top">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6"></div>
+                  </div>
+                </div>
+              </section>
             </div>
-            <!--site-content-->
+            <!--#inner-content-->
           </div>
-          <!--#content-wrap-->
+          <!--site-content-->
         </div>
-        <!--/#main-content-->
+        <!--#content-wrap-->
       </div>
+      <!--/#main-content-->
     </div>
-
-    <a id="scroll-top"></a>
-
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Select JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
-    <!-- Bootstrap Select Country JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select-country@4.2.0/dist/js/bootstrap-select-country.min.js"></script>
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'js/jquery-validate.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/shortcodes.js' %}"></script>
-    <!--animation-->
-    <script src="{% static 'js/wow.min.js' %}"></script>
-    <script src="{% static 'js/animation.js' %}"></script>
-    <!--owl.carousel-->
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel2.thumbs.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
-
-    <script>
-      document
-        .getElementById('getval')
-        .addEventListener('change', readURL, true);
-      function readURL() {
-        var file = document.getElementById('getval').files[0];
-        var reader = new FileReader();
-        reader.onloadend = function () {
-          document.getElementById('profile-upload').style.backgroundImage =
-            'url(' + reader.result + ')';
-        };
-        if (file) {
-          reader.readAsDataURL(file);
-        } else {
-        }
-      }
-
-      $('.label.ui.dropdown').dropdown();
-
-      $('.no.label.ui.dropdown').dropdown({
-        useLabels: false,
-      });
-
-      $('.ui.button').on('click', function () {
-        $('.ui.dropdown').dropdown('restore defaults');
-      });
-    </script>
-  </body>
-</html>
+  </div>
+  {% endblock %}
