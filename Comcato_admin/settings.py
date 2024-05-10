@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication',
-    'comcato',
-    # 'social_django'
+    'language',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +124,7 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL="/media/"
+MEDIA_URL = "/media/"
 
 
 # Default primary key field type
@@ -136,8 +135,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
-STATICFILES_DIRS =(
-    os.path.join(BASE_DIR,'static'),
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
 )
 
 

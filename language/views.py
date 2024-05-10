@@ -1,17 +1,10 @@
-from django.shortcuts import *
-import logging
-import time
-import shelve
-from django.http import JsonResponse
+from django.shortcuts import render, redirect
 from django.contrib import messages
-import json
-from authentication.models import Userdetail,Language,Payment,Material,Interest,Favouritetopic
+from authentication.models import Userdetail, Language, Payment, Material
 from .form import ProfileForm
-from json import dumps 
+from json import dumps
 from django.core.serializers.json import DjangoJSONEncoder
-from django.core.paginator import Paginator
 from django.contrib.auth.models import User
-
 
 
 # Create your views here.
@@ -28,22 +21,22 @@ def get_user_languages(user_id):
 
     except Userdetail.DoesNotExist:
         return []
-    
 
-    
+
 def get_langauge_all():
-    try: 
+    try:
         languages = Language.objects.all()
         if languages:
-            return [[ language.code ,  language.name] for language in languages]
+            return [[language.code,  language.name] for language in languages]
 
         else:
-            return []  
+            return []
     except Language.DoesNotExist:
         return []
-    
+
+
 def get_payment_status(user_id):
-    payments_Status=0
+    payments_Status = 0
     try:
         paymentsvalue = Payment.objects.get(user=user_id)
         payments_Status = 1
@@ -54,88 +47,91 @@ def get_payment_status(user_id):
     return payments_Status
 
 
-
 def get_all_audio_file(download):
     try:
-        
+
         audiofiles_list = Material.objects.filter(type=download)
         if audiofiles_list:
-            return [[audiofiles.file ,audiofiles.name, get_language_id(audiofiles.your_language_id),get_language_id(audiofiles.foreign_language_id),str(audiofiles.file).split('.')[1]]  for audiofiles in audiofiles_list]
+            return [[audiofiles.file, audiofiles.name, get_language_id(audiofiles.your_language_id), get_language_id(audiofiles.foreign_language_id), str(audiofiles.file).split('.')[1]] for audiofiles in audiofiles_list]
         else:
-            return []  
+            return []
 
     except Material.DoesNotExist:
-        return []  
+        return []
+
 
 def get_langauge_name(code):
     try:
-        
+
         languages = Language.objects.filter(name=code)
         if languages:
             return [language.code for language in languages]
 
         else:
-            return []  
+            return []
 
     except Language.DoesNotExist:
         return []
 
+
 def home(request):
-    
+
     if request.user.is_authenticated:
 
-        user_language = get_user_languages(request.user.id)  # Assuming 'languages' is the related_name in the Registration model
-        Language_list=[]
-        if(user_language!=[]):
+        # Assuming 'languages' is the related_name in the Registration model
+        user_language = get_user_languages(request.user.id)
+        Language_list = []
+        if (user_language != []):
             Language = user_language
-           
+
             for code in Language:
-                temp=[]
-                
+                temp = []
+
                 temp.append(get_langauge_name(code)[0])
                 temp.append(code)
                 Language_list.append(temp)
-        
+
         Language_all = get_langauge_all()
 
-        # Audio File 
+        # Audio File
         # print(request.user.id)
         payments_Status = get_payment_status(request.user.id)
-        download='free'
-        if(payments_Status==1):  # if payment is done
-            download='premium'
-        
-        audio_list  =  get_all_audio_file(download)
+        download = 'free'
+        if (payments_Status == 1):  # if payment is done
+            download = 'premium'
+
+        audio_list = get_all_audio_file(download)
         audio_dict = {}
         for data in audio_list:
             if data[2] not in audio_dict:
                 audio_dict[data[2]] = []
 
-            temp = [str(data[0]), data[1],data[4],data[2],data[3]]
+            temp = [str(data[0]), data[1], data[4], data[2], data[3]]
             audio_dict[data[2]].append(temp)
         dataJSON = dumps(audio_dict, cls=DjangoJSONEncoder)
-        return render(request,'home.html',{'data': dataJSON,'title':'Home','LANGUAGES':Language_list,'LANGUAGES_all':Language_all,'audio_dict':audio_dict,'download_status':download})
-       
+        context = {
+            'data': dataJSON, 'title': 'Home', 'LANGUAGES': Language_list,
+            'LANGUAGES_all': Language_all, 'audio_dict': audio_dict, 'download_status': download
+        }
+        return render(request, 'home.html', context)
 
     else:
         user_language = None
 
-
-
     # print(user_language)
     # languages = Language.objects.all()
-    
-    return render(request,'home.html',{'title':'Home'})
+
+    return render(request, 'home.html', {'title': 'Home'})
 
 
 def articles(request):
-    return render(request,'articles.html',{'title':'articles'})
+    return render(request, 'articles.html', {'title': 'articles'})
 
 
 def profile(request):
 
     if request.method == 'POST':
-        existing_profile=None
+        existing_profile = None
         try:
             # Try to get the existing profile for the authenticated user
             existing_profile = Userdetail.objects.get(user=request.user.id)
@@ -147,7 +143,7 @@ def profile(request):
         except Userdetail.DoesNotExist:
             # If the profile doesn't exist, create a new form
             form = ProfileForm(request.POST, request.FILES)
-        if  form.is_valid():
+        if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
@@ -159,12 +155,11 @@ def profile(request):
             Interest_values = form.cleaned_data['Interest']
             profile_picture = form.cleaned_data['profile_picture']
 
-            if existing_profile != None:
+            if existing_profile is not None:
                 user = User.objects.get(id=request.user.id)
                 user.first_name = first_name
                 user.last_name = last_name
                 user.save()
-
 
                 existing_profile.address = address
                 existing_profile.country = country
@@ -177,8 +172,7 @@ def profile(request):
                 existing_profile.save()
 
                 # Favourite Topic
-            
-                
+
                 # Clear existing favourite topics
                 existing_profile.favourite_topics.clear()
 
@@ -203,13 +197,12 @@ def profile(request):
                     existing_profile.your_language.add(language)
 
             # Favourtie Topic
-                
-            
-        
+
             messages.success(request, 'Profile Successfully updated.....')
 
             # Redirect to another page or return a response
-            return redirect('profile')  # Assuming 'payment' is the name of the URL pattern for your payment page
+            # Assuming 'payment' is the name of the URL pattern for your payment page
+            return redirect('profile')
         messages.error(request, 'Profile not Successfully updated.....')
         return redirect('profile')
 
@@ -217,11 +210,11 @@ def profile(request):
 
         user_data = Userdetail.objects.get(user=request.user.id)
         email = request.user.email
-        firstname =''
-        lastname =''
-        gender =''
-        address =''
-        country =''
+        firstname = ''
+        lastname = ''
+        gender = ''
+        address = ''
+        country = ''
         try:
             user_detail = Userdetail.objects.get(user=request.user.id)
             firstname = request.user.first_name if request.user.first_name is not None else ''
@@ -239,11 +232,11 @@ def profile(request):
 
         form = ProfileForm()
 
-        return render(request,'profile.html',{'title':'profile','form':form,'email':email,
-                                              'firstname':firstname,'lastname':lastname,
-                                              'gender':gender,'address':address,'country':country,
-                                              'payment':payments_Status,'profile_picture':profile_picture})
-    
+        return render(request, 'profile.html', {'title': 'profile', 'form': form, 'email': email,
+                                                'firstname': firstname, 'lastname': lastname,
+                                                'gender': gender, 'address': address, 'country': country,
+                                                'payment': payments_Status, 'profile_picture': profile_picture})
+
     return redirect('home')
 
 
@@ -251,14 +244,15 @@ def Userpayments_add(request):
     print("Userpayments_add")
 
     payments_user = Payment(
-            user=request.user,
-            paymentsstatus=1      
+        user=request.user,
+        paymentsstatus=1
     )
     payments_user.save()
     messages.success(request, 'Payment Successfully save.....')
     return redirect('profile')
 
+
 def Userpayments(request):
     print("payments")
 
-    return render(request,'payment.html',{'title':'payments'})
+    return render(request, 'payment.html', {'title': 'payments'})
