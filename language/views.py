@@ -38,7 +38,6 @@ def get_langauge_all():
 def get_payment_status(user_id):
     payments_Status = 0
     try:
-        paymentsvalue = Payment.objects.get(user=user_id)
         payments_Status = 1
 
     except Payment.DoesNotExist:
@@ -207,8 +206,6 @@ def profile(request):
         return redirect('profile')
 
     if request.user.is_authenticated:
-
-        user_data = Userdetail.objects.get(user=request.user.id)
         email = request.user.email
         firstname = ''
         lastname = ''
