@@ -5,9 +5,25 @@ from .form import ProfileForm
 from json import dumps
 from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from .form import ContactForm
 
-
+def contact(request):
+    if request.method == 'POST':
+            form = ContactForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Your message was sent, thank you!')
+                return redirect('contact')
+    else:
+            form = ContactForm()
+            return render(request, 'contact.html', {'form': form})
 # Create your views here.
+
+def privacy(request):
+    return render(request, 'privacy.html')
+
+
 def get_language_id(language_id):
     language = Language.objects.get(id=language_id)
     return language.code
@@ -152,7 +168,7 @@ def profile(request):
             favouritetopic_values = form.cleaned_data['favouritetopic']
             your_language = form.cleaned_data['language']
             Interest_values = form.cleaned_data['Interest']
-            profile_picture = form.cleaned_data['profile_picture']
+            # profile_picture = form.cleaned_data['profile_picture']
 
             if existing_profile is not None:
                 user = User.objects.get(id=request.user.id)
@@ -232,7 +248,7 @@ def profile(request):
         return render(request, 'profile.html', {'title': 'profile', 'form': form, 'email': email,
                                                 'firstname': firstname, 'lastname': lastname,
                                                 'gender': gender, 'address': address, 'country': country,
-                                                'payment': payments_Status, 'profile_picture': profile_picture})
+                                                'payment': payments_Status})
 
     return redirect('home')
 

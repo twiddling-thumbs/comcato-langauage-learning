@@ -9,4 +9,6 @@ urlpatterns = [
     path('payments/', views.Userpayments, name='payments'),
     path('Userpayments/', views.Userpayments_add, name='Userpayments'),
     path('articles/', views.articles, name='articles'),
+    path('contact/',views.contact, name='contact'),
+    path('privacy/',views.privacy, name='privacy'),
 ]

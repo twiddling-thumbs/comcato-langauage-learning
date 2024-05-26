@@ -1,0 +1,146 @@
+{% extends 'base_layout.html' %} {% load static %} {% block content %}
+<!-- <!doctype html> -->
+<!-- <html lang="en"> -->
+
+<head>
+    <!-- Required meta tags -->
+    <!-- <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+
+    <!-- <title>Contact Form #6</title> -->
+</head>
+
+
+
+<!-- <div class="content"> -->
+<!-- <div class="overlay-headerContact"> -->
+<!-- <h3 class="title">Contact Us</h3> -->
+<!-- </div> -->
+<div id="main-content" class="site-main clearfix">
+    <div id="content-wrap">
+        <div id="site-content" class="site-content clearfix">
+            <div id="inner-content" class="inner-content-wrap">
+                <section class="page-title" style="background: #021f3c">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="baner-title fl-st-4">
+                                    <h2 class="title-page white-color wow fadeInDown" data-wow-delay="200ms"
+                                        data-wow-duration="1500ms">
+                                        Contact Us
+                                    </h2>
+                                    <div class="breadcrumbs">
+                                        <ul class="fl-flex">
+                                            <li>
+                                                <a href="{% url 'home' %}" class="white-color wow fadeInUp"
+                                                    data-wow-delay="200ms" data-wow-duration="1500ms">Home</a>
+                                            </li>
+                                            <li class="breadcrumbs-inner">
+                                                <span class="trail-end white-color wow fadeInUp" data-wow-delay="400ms"
+                                                    data-wow-duration="1500ms">Contact us</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--/breadcrumbs-->
+                                </div>
+                                <!--/baner-title-->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="container container-one">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+
+                                    <h3 class="heading mb-4">Let's talk about everything!</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas
+                                        debitis, fugit natus?</p>
+
+                                    <p><img src="{% static 'img/undraw-contact.svg' %}" alt="Image" class="img-fluid">
+                                    </p>
+
+
+                                </div>
+                                <div class="col-md-6">
+
+                                    <form class="mb-5" method="post" id="contactForm" name="contactForm">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        <!-- <div class="row">
+                                            <div class="col-md-12 form-group">
+                                                <input type="text" class="form-control" name="name" id="name"
+                                                    placeholder="Your name">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 form-group">
+                                                <input type="text" class="form-control" name="email" id="email"
+                                                    placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 form-group">
+                                                <input type="text" class="form-control" name="subject" id="subject"
+                                                    placeholder="Subject">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 form-group">
+                                                <textarea class="form-control" name="message" id="message" cols="30"
+                                                    rows="7" placeholder="Write your message"></textarea>
+                                            </div>
+                                        </div> -->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <input type="submit" value="Send Message"
+                                                    class="btn btn-primary rounded-0 py-2 px-4">
+                                                <span class="submitting"></span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    {% if messages %}
+                                        <div>
+                                            {% for message in messages %}
+                                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    <div id="form-message-warning mt-4"></div>
+                                    <div id="form-message-success">
+                                        Your message was sent, thank you!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<!-- <script src="js/jquery-3.3.1.min.js"></script>
+                    <script src="js/popper.min.js"></script>
+                    <script src="js/bootstrap.min.js"></script>
+                    <script src="js/jquery.validate.min.js"></script>
+                    <script src="js/main.js"></script> -->
+
+<!-- </body> -->
+
+<!-- </html> -->
+{% endblock %}

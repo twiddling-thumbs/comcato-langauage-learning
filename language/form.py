@@ -1,5 +1,5 @@
 from django import forms
-from authentication.models import Userdetail,Language,Interest,Favouritetopic
+from authentication.models import Userdetail,Language,Interest,Favouritetopic,Contact
 
 
 class ProfileForm(forms.Form):
@@ -7,12 +7,12 @@ class ProfileForm(forms.Form):
     class Meta:
         model = Userdetail
         fields = ['first_name', 'last_name', 'email', 'address', 'country', 'gender', 'profile_picture']
-    first_name = forms.CharField(label='First Name', max_length=100)
-    last_name = forms.CharField(label='Last Name', max_length=100)
-    email = forms.EmailField(label='Email')
-    address = forms.CharField(label='Address', max_length=255)
-    country = forms.CharField(label='Country', max_length=100)
-    gender = forms.ChoiceField(label='Gender', choices=[('1', 'Male'), ('2', 'Female')])
+    first_name = forms.CharField(label='First Name', max_length=100, required=True)
+    last_name = forms.CharField(label='Last Name', max_length=100, required=True)
+    email = forms.EmailField(label='Email', required=True)
+    address = forms.CharField(label='Address', max_length=255, required=True)
+    country = forms.CharField(label='Country', max_length=100, required=True)
+    gender = forms.ChoiceField(label='Gender', choices=[('1', 'Male'), ('2', 'Female')], required=True)
     # profile_picture = forms.FileField(label='', required=False   , 
     #                        widget=forms.FileInput(attrs={'class': 'upload'}),)
     profile_picture = forms.FileField(
@@ -58,3 +58,13 @@ class ProfileForm(forms.Form):
     # Add more fields as needed
 
     # You can also add widgets or validation as necessary
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'subject', 'message']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your name'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+            'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subject'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write your message', 'rows': 7}),
+        }

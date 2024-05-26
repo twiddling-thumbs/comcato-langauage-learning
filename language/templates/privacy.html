@@ -1,0 +1,117 @@
+{% extends 'base_layout.html' %} {% load static %} {% block content %}
+<style>
+    .container-two {
+        margin-top: 100px;
+    }
+
+    .privacy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: -webkit-center;
+    }
+
+    .privacy-content h3,
+    .privacy-content h4,
+    .privacy-content h5 {
+        text-align: center;
+    }
+
+    .privacy-content ul {
+        text-align: -webkit-center;
+        list-style-position: inside;
+    }
+    .privacy-content li {
+        text-align: -webkit-center;
+        
+    }
+</style>
+<div id="main-content" class="site-main clearfix">
+    <div id="content-wrap">
+        <div id="site-content" class="site-content clearfix">
+            <div id="inner-content" class="inner-content-wrap">
+                <section class="page-title" style="background: #021f3c">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="baner-title fl-st-4">
+                                    <h2 class="title-page white-color wow fadeInDown" data-wow-delay="200ms"
+                                        data-wow-duration="1500ms">
+                                        Privacy
+                                    </h2>
+                                    <div class="breadcrumbs">
+                                        <ul class="fl-flex">
+                                            <li>
+                                                <a href="{% url 'home' %}" class="white-color wow fadeInUp"
+                                                    data-wow-delay="200ms" data-wow-duration="1500ms">Home</a>
+                                            </li>
+                                            <li class="breadcrumbs-inner">
+                                                <span class="trail-end white-color wow fadeInUp" data-wow-delay="400ms"
+                                                    data-wow-duration="1500ms">Privacy</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--/breadcrumbs-->
+                                </div>
+                                <!--/baner-title-->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="container container-two">
+                    <div class="row justify-content-center">
+                        <div class="privacy-content">
+                            <h3>Privacy Policy</h3>
+                            <p>Effective date: January 1, 2023</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae
+                                vestibulum vestibulum.</p>
+
+                            <h4>Interpretation and Definitions</h4>
+                            <h5>Interpretation</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel risus sit amet velit
+                                fringilla placerat.</p>
+
+                            <h5>Definitions</h5>
+                            <p>For the purposes of this Privacy Policy:</p>
+                            <ul>
+                                <li><strong>Account:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </li>
+                                <li><strong>Company:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </li>
+                                <li><strong>Cookies:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </li>
+                            </ul>
+
+                            <h4>Collecting and Using Your Personal Data</h4>
+                            <h5>Types of Data Collected</h5>
+                            <p><strong>Personal Data:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel risus sit amet velit
+                                fringilla placerat.</p>
+                            <ul>
+                                <li>Email address</li>
+                                <li>First name and last name</li>
+                                <li>Phone number</li>
+                                <li>Address, State, Province, ZIP/Postal code, City</li>
+                                <li>Usage Data</li>
+                            </ul>
+
+                            <p><strong>Usage Data:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                                vel risus sit amet velit fringilla placerat.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <!-- <script src="js/jquery-3.3.1.min.js"></script>
+                    <script src="js/popper.min.js"></script>
+                    <script src="js/bootstrap.min.js"></script>
+                    <script src="js/jquery.validate.min.js"></script>
+                    <script src="js/main.js"></script> -->
+
+    <!-- </body> -->
+
+    <!-- </html> -->
+    {% endblock %}
